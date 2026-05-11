@@ -66,6 +66,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+button {
+  cursor: pointer;
+}
+
 /* Reusable grid background */
 .grid-bg {
   background-color: var(--bg);
