@@ -9,7 +9,7 @@ export function useWebcam() {
 
   useEffect(() => {
     let stream: MediaStream | null = null
-    const video = videoRef.current // capture before async work
+    const videoEl = videoRef.current // capture before async work
 
     navigator.mediaDevices
       .getUserMedia({
@@ -17,9 +17,9 @@ export function useWebcam() {
       })
       .then(s => {
         stream = s
-        if (!video) return
-        video.srcObject = s
-        video.onloadeddata = () => setStatus('ready')
+        if (!videoEl) return
+        videoEl.srcObject = s
+        videoEl.onloadeddata = () => setStatus('ready')
       })
       .catch((err: unknown) => {
         setError(err instanceof Error ? err.message : 'Camera access denied')
@@ -28,7 +28,7 @@ export function useWebcam() {
 
     return () => {
       stream?.getTracks().forEach(t => t.stop())
-      if (video) video.srcObject = null
+      if (videoEl) videoEl.srcObject = null
     }
   }, [])
 
