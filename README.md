@@ -1,5 +1,7 @@
 # curl-counter
 
+**[https://erdembircan.github.io/curl-counter/](https://erdembircan.github.io/curl-counter/)**
+
 An experiment in running real-time ML inference entirely in the browser. No backend, no data sent anywhere — just a webcam and a neural network running on your GPU via WebGL.
 
 ## What it does
